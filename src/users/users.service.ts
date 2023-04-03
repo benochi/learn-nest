@@ -27,6 +27,7 @@ export class UsersService {
     });
   }
 
+  //find user by ID and apply updates. 
   async updateUser(userId: string, userUpdates: UpdateUserDto): Promise<User> {
     return this.usersRepository.findOneAndUpdate({ userId }, userUpdates)
   }
