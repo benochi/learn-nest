@@ -22,6 +22,6 @@ export class UsersRepository {
   }
   //can also make this code an abstract class and import it for other types(not User)
   async findOneAndUpdate(userFilterQuery: FilterQuery<User>, user: Partial<User>): Promise<User> {
-    return this.userModel.findOneAndUpdate(userFilterQuery, user);
+    return this.userModel.findOneAndUpdate(userFilterQuery, user, { new: true });
   }
 }
