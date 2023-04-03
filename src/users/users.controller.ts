@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Patch, Post } from "@nestjs/common";
 import { CreateUserDto } from './dto/create-user.dto';
-import { UpdateUserDto } from './dto/update-user.dto';
+import { UpdateUserDto } from './dto/update-user-dto'
 
 import { User } from './schemas/user.schema';
 import { UsersService } from './users.service';
@@ -19,6 +19,7 @@ export class UsersController {
     return this.usersService.getUsers();
   }
 
+  //to create, describe the Body of the req.  DTO just shows typ[e of data we espect to receive.
   @Post()
   async createUser(@Body() createUserDto: CreateUserDto): Promise<User> {
     return this.usersService.createUser(createUserDto.email, createUserDto.age)
